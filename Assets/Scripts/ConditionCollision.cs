@@ -8,7 +8,7 @@ public class ConditionCollision : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<BoxCollider2D>())
         {
-            GetComponent<AutoMove>()._collision = true;
+            GetComponent<AutoMove>()._isCollision = true;
             gameObject.GetComponent<EnemyFighter>().StartFight(collision.gameObject);
         }
     }

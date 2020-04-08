@@ -6,11 +6,11 @@ public class AutoMove : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private Vector3 _direction;
-    public bool _collision = false;
+    public bool _isCollision = false;
     
     void Update()
     {
-        if(!_collision)
+        if(!_isCollision)
             transform.Translate(_direction * _speed * Time.deltaTime);
     }
 }
