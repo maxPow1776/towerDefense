@@ -5,30 +5,35 @@ using UnityEngine;
 public class TowerFighter : AbstractFighter
 {
     [SerializeField] private GameObject _prefab;
+    [SerializeField] private GameObject gun;
     private GameObject _currentPrefab;
-    private GameObject _rival;
+    public GameObject _target;
+    [SerializeField] private float _interval;
+    private bool _isShoot = false;
+    public int _index;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Update()
     {
-        if (collision.gameObject.GetComponent<CapsuleCollider2D>())
+        if(_target)
         {
-            _rival = collision.gameObject;
-            InvokeRepeating("Fight", 1, 2);
-            Debug.Log("onTriggerEnter");
+            if (!_isShoot)
+            {
+                StartCoroutine(Shoot());
+            }
         }
+    }
+
+    IEnumerator Shoot()
+    {
+        _isShoot = true;
+        yield return new WaitForSeconds(_interval);
+        GameObject bullet = GameObject.Instantiate(_prefab, gun.transform.position, Quaternion.identity);
+        bullet.GetComponent<Bullet>()._targetForBullet = _target;
+        _isShoot = false;
     }
 
     public override void StartFight(GameObject gameObject)
     {
-        //_currentPrefab = Instantiate(_prefab, transform.position, Quaternion.identity);
-        //_currentPrefab.GetComponent<Bullet>()._target = _rival;
-    }
-
-    public void Fight()
-    {
-        var pos = gameObject.GetComponentInChildren<GameObject>().transform.position;
-        _currentPrefab = Instantiate(_prefab, pos, Quaternion.identity);
-        Debug.Log(pos);
-        _currentPrefab.GetComponent<Bullet>()._target = _rival;
+        throw new System.NotImplementedException();
     }
 }

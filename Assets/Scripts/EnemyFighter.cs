@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyFighter : AbstractFighter
 {
     private AbstractFighter _rival;
+    private string _isFight = "isFight";
+    public GameObject _zone;
 
     public override void StartFight(GameObject gameObject)
     {
@@ -14,13 +16,26 @@ public class EnemyFighter : AbstractFighter
 
     private void Fight()
     {
-        if (_rival._health > 0)
-            _rival._health -= (_damage - _rival._protection);
-        else { 
-            Destroy(_rival.gameObject);
+        try
+        {
+            if (_rival._health > 0 && _rival)
+            {
+                _rival._health -= (_damage - _rival._protection);
+                Debug.Log("нанесен урон " + _rival._health);
+            }
+            else
+            {
+                _zone.GetComponent<ZoneEnter>().RemoveTowerFromZone(_rival.gameObject);
+                Destroy(_rival.gameObject);
+                CancelInvoke("Fight");
+                GetComponent<AutoMove>()._isCollision = false;
+                gameObject.GetComponent<Animator>().SetBool(_isFight, false);
+            }
+        } catch (MissingReferenceException e)
+        {
             CancelInvoke("Fight");
             GetComponent<AutoMove>()._isCollision = false;
+            gameObject.GetComponent<Animator>().SetBool(_isFight, false);
         }
-        Debug.Log(_rival._health);
     }
 }
