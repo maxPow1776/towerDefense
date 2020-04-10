@@ -7,11 +7,12 @@ public class PutTower : MonoBehaviour
     [SerializeField] private GameObject _prefab;
     [SerializeField] private GameObject _zone;
     private bool _isEmpty = true;
+    private bool _hasEnemy = false;
     private GameObject _tower;
 
     private void OnMouseDown()
     {
-        if(_isEmpty)
+        if(_isEmpty && !_hasEnemy)
         {
             _tower = Instantiate(_prefab, transform.position, Quaternion.identity);
             _zone.GetComponent<ZoneEnter>().AddTowerInZone(_tower);
@@ -26,5 +27,18 @@ public class PutTower : MonoBehaviour
         {
             _isEmpty = true;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("что то вошло в коллизию с местом для башни");
+        if (collision.gameObject.GetComponent<EnemyFighter>())
+            _hasEnemy = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<EnemyFighter>())
+            _hasEnemy = false;
     }
 }
