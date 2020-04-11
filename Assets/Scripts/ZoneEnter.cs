@@ -5,7 +5,8 @@ using UnityEngine;
 public class ZoneEnter : MonoBehaviour
 {
     private GameObject[] towers = new GameObject[3];
-    
+    [SerializeField] private GameObject[] enemies = new GameObject[10];
+
 
     public void AddTowerInZone(GameObject tower)
     {
@@ -16,6 +17,7 @@ public class ZoneEnter : MonoBehaviour
                 towers[i] = tower;
                 tower.GetComponent<TowerFighter>()._index = i;
                 Debug.Log("башня довавлена в массив " + i);
+                towers[i].GetComponent<TowerFighter>().UpdateEnemies(enemies);
                 break;
             }
         }
@@ -32,39 +34,21 @@ public class ZoneEnter : MonoBehaviour
         if (collision.gameObject.GetComponent<EnemyFighter>())
         {
             collision.gameObject.GetComponent<EnemyFighter>()._zone = this.gameObject;
-            Debug.Log("вошел в коллизию и назачил зону врагу");
+            for(int i = 0; i < enemies.Length; i++)
+            {
+                if(enemies[i] == null)
+                {
+                    enemies[i] = collision.gameObject;
+                    Debug.Log("враг добавлен в список");
+                    for(int j = 0; j < towers.Length; j++)
+                    {
+                        if(towers[j] != null)
+                            towers[j].GetComponent<TowerFighter>().UpdateEnemies(enemies);
+                    }
+                    break;
+                }
+            }
         }
-        Debug.Log("вошел в коллизию");
+        //Debug.Log("вошел в коллизию");
     }
-
-
-    /*[SerializeField] private GameObject _tower;
-    private GameObject _rival;
-    private bool _isLock = false;
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.GetComponent<CapsuleCollider2D>() && !_isLock)
-        {
-            _rival = collision.gameObject;
-            _tower.GetComponent<TowerFighter>()._target = _rival;
-            Debug.Log("вошел в область");
-            _isLock = true;
-        }
-    }
-
-    private void Update()
-    {
-        if (!_rival)
-            _isLock = false;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.GetComponent<CapsuleCollider2D>() && collision.gameObject == _rival)
-        {
-            _isLock = false;
-        }
-        Debug.Log("вышел из области");
-    }*/
 }

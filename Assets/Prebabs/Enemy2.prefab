@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4255989376786053930}
   - component: {fileID: 8663544548252743083}
   - component: {fileID: 5167620715711009310}
+  - component: {fileID: 6936488454922303169}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: f46a1afa91d9b544e9df7f118bdd1f0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -163,3 +164,25 @@ MonoBehaviour:
   _health: 40
   _protection: 3
   _damage: 10
+  _zone: {fileID: 0}
+--- !u!50 &6936488454922303169
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999072249738839048}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

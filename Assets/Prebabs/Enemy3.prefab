@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6526797680427423551}
   - component: {fileID: 1516545883886643895}
   - component: {fileID: 165605266025473989}
+  - component: {fileID: 4199833532851312115}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Untagged
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ee13dc54e88986a4d9204c30a3f37fd7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -163,3 +164,25 @@ MonoBehaviour:
   _health: 15
   _protection: 1
   _damage: 9
+  _zone: {fileID: 0}
+--- !u!50 &4199833532851312115
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3050645733418428394}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

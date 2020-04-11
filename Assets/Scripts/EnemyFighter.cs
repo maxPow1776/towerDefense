@@ -7,6 +7,12 @@ public class EnemyFighter : AbstractFighter
     private AbstractFighter _rival;
     private string _isFight = "isFight";
     public GameObject _zone;
+    public GameObject _placeForTower;
+
+    private void Start()
+    {
+        _hp.GetComponent<Hp>()._health = _health;
+    }
 
     public override void StartFight(GameObject gameObject)
     {

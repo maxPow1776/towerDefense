@@ -2,43 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : AbstractFighter
+public class Bullet : MonoBehaviour
 {
     public GameObject _targetForBullet;
     [SerializeField] private float speed;
     private AbstractFighter _rival;
+    [SerializeField] private Vector2 _force;
+    public int damage = 20;
+    private string _isDie = "isDie";
+
+    private void Start()
+    {
+        //gameObject.GetComponent<Rigidbody2D>().AddForce(_force, ForceMode2D.Impulse);
+    }
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _targetForBullet.transform.position, Time.deltaTime * speed);
+        if (_targetForBullet != null)
+            transform.position = Vector3.MoveTowards(transform.position, _targetForBullet.transform.position, Time.deltaTime * speed);
+        else
+            Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<CapsuleCollider2D>())
-        { 
-            _rival = gameObject.GetComponent<AbstractFighter>();
-            StartFight(collision.gameObject);
-        }
-    }
-
-    public override void StartFight(GameObject gameObject)
-    {
-        try
+        if (collision.gameObject.GetComponent<EnemyFighter>())
         {
-            if (_rival._health > 0 && _rival)
-                _rival._health -= (_damage - _rival._protection);
-            else
+            _rival = collision.gameObject.GetComponent<EnemyFighter>();
+            _rival._health -= (damage - _rival._protection);
+            _rival._hp.GetComponent<Hp>()._health = _rival._health;
+            Destroy(gameObject);
+            if(_rival._health < 0)
             {
-                Destroy(_rival.gameObject);
-               
+                _rival.GetComponent<Animator>().SetBool(_isDie, true);
+                if(_rival.GetComponent<EnemyFighter>()._placeForTower != null)
+                    _rival.GetComponent<EnemyFighter>()._placeForTower.GetComponent<PutTower>()._hasEnemy = false;
+                Destroy(collision.gameObject, 0.8f);
             }
-            Destroy(gameObject);
-            Debug.Log(_rival._health + "отняли злоровья у врага");
         }
-        catch (MissingReferenceException e)
+        if (collision.gameObject.GetComponent<TowerFighter>())
         {
-            Destroy(gameObject);
+            Physics2D.IgnoreCollision(gameObject.GetComponent<CircleCollider2D>(), collision.gameObject.GetComponent<BoxCollider2D>());
         }
     }
 }
