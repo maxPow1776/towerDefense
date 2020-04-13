@@ -8,7 +8,7 @@ public class ConditionCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<TowerFighter>())
+        if (collision.gameObject.GetComponent<TowerFighter>() || collision.gameObject.GetComponent<MainTower>())
         {
             GetComponent<AutoMove>()._isCollision = true;
             gameObject.GetComponent<EnemyFighter>().StartFight(collision.gameObject);

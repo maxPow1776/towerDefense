@@ -13,6 +13,12 @@ public class TowerFighter : AbstractFighter
     public int _index;
     private GameObject[] _enemies = new GameObject[10];
 
+    private void Start()
+    {
+        if (_hp != null)
+            _hp.GetComponent<Hp>()._health = _health;
+    }
+
     public void Update()
     {
         for (int i = 0; i < _enemies.Length; i++)

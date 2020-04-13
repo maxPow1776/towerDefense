@@ -11,7 +11,8 @@ public class EnemyFighter : AbstractFighter
 
     private void Start()
     {
-        _hp.GetComponent<Hp>()._health = _health;
+        if (_hp != null)
+            _hp.GetComponent<Hp>()._health = _health;
     }
 
     public override void StartFight(GameObject gameObject)
@@ -24,18 +25,21 @@ public class EnemyFighter : AbstractFighter
     {
         try
         {
-            if (_rival._health > 0 && _rival)
+            if (_rival)
             {
                 _rival._health -= (_damage - _rival._protection);
-                Debug.Log("нанесен урон " + _rival._health);
-            }
-            else
-            {
-                _zone.GetComponent<ZoneEnter>().RemoveTowerFromZone(_rival.gameObject);
-                Destroy(_rival.gameObject);
-                CancelInvoke("Fight");
-                GetComponent<AutoMove>()._isCollision = false;
-                gameObject.GetComponent<Animator>().SetBool(_isFight, false);
+                _rival.GetComponent<AbstractFighter>()._hp.GetComponent<Hp>()._health = _rival._health;
+                if (_rival._health < 0)
+                {
+                    if(_rival.GetComponent<TowerFighter>())
+                        _zone.GetComponent<ZoneEnter>().RemoveTowerFromZone(_rival.gameObject);
+                    Destroy(_rival.GetComponent<AbstractFighter>()._hp);
+                    if (_rival.GetComponent<TowerFighter>())
+                        Destroy(_rival.gameObject);
+                    CancelInvoke("Fight");
+                    GetComponent<AutoMove>()._isCollision = false;
+                    gameObject.GetComponent<Animator>().SetBool(_isFight, false);
+                }
             }
         } catch (MissingReferenceException e)
         {

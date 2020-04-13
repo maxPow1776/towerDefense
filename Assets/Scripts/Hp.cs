@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class Hp : MonoBehaviour
 {
     public GameObject _fighter;
-    [SerializeField] private RectTransform _rectTransform;
+    public RectTransform _rectTransform;
     public int _health;
+    public bool _isMainTower = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,14 +18,25 @@ public class Hp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_fighter == null)
-            Destroy(gameObject);
-        else
+        if (!_isMainTower)
         {
-            gameObject.GetComponent<Text>().text = _health.ToString();
-            var position = _fighter.transform.position;
-            position.y += 1;
-            _rectTransform.position = Camera.main.WorldToScreenPoint(position);
+            if (_fighter == null)
+                Destroy(gameObject);
+            else
+            {
+                gameObject.GetComponent<Text>().text = _health.ToString();
+                var position = _fighter.transform.position;
+                position.y += 1;
+                _rectTransform.position = Camera.main.WorldToScreenPoint(position);
+            }
+        } else
+        {
+            if (_fighter == null)
+                Destroy(gameObject);
+            else
+            {
+                gameObject.GetComponent<Text>().text = _health.ToString();
+            }
         }
     }
 }

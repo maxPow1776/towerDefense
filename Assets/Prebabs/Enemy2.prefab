@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: f46a1afa91d9b544e9df7f118bdd1f0c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -164,7 +164,9 @@ MonoBehaviour:
   _health: 40
   _protection: 3
   _damage: 10
+  _hp: {fileID: 0}
   _zone: {fileID: 0}
+  _placeForTower: {fileID: 0}
 --- !u!50 &6936488454922303169
 Rigidbody2D:
   serializedVersion: 4
