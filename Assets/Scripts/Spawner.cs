@@ -9,16 +9,20 @@ public class Spawner : MonoBehaviour
     private bool _isCreating = false;
     [SerializeField] private GameObject _hp;
     [SerializeField] private GameObject _canvas;
+    public int _countEnemies = 5;
 
     private void Start()
     {
         CreateEnemy();
+        _countEnemies--;
     }
 
     private void Update()
     {
-        if (!_isCreating)
+        if (!_isCreating && _countEnemies > 0) {
             StartCoroutine(CreateEnemyWithTimer());
+            _countEnemies--;
+        }
     }
 
     IEnumerator CreateEnemyWithTimer()

@@ -48,4 +48,11 @@ public class EnemyFighter : AbstractFighter
             gameObject.GetComponent<Animator>().SetBool(_isFight, false);
         }
     }
+
+    public void NewLevelEnemy()
+    {
+        _health += 1;
+        _damage += 1;
+        _protection += 1;
+    }
 }
