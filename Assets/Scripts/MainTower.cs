@@ -9,6 +9,9 @@ public class MainTower : AbstractFighter
     [SerializeField] private GameObject _canvas;
     [SerializeField] private GameObject _hpPrefab;
     [SerializeField] private Sprite _destroyedTower;
+    [SerializeField] private GameObject _spawners;
+    [SerializeField] private GameObject _gamePanel;
+    [SerializeField] private GameObject _gameOverPanel;
 
     public override void StartFight(GameObject gameObject)
     {
@@ -35,6 +38,7 @@ public class MainTower : AbstractFighter
         if(_health < 0)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = _destroyedTower;
+            _spawners.SetActive(false);
             StartCoroutine(RestartGame());
         }
     }
@@ -42,6 +46,10 @@ public class MainTower : AbstractFighter
     IEnumerator RestartGame()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        
+        _gamePanel.SetActive(false);
+        _gameOverPanel.SetActive(true);
+
+        //SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
     }
 }
