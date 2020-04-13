@@ -9,6 +9,7 @@ public class PutTower : MonoBehaviour
     [SerializeField] private GameObject _prefabHP;
     [SerializeField] private GameObject _canvas;
     [SerializeField] private GameObject _zone;
+    [SerializeField] private GameObject _panelHelper;
     private bool _isEmpty = true;
     public bool _hasEnemy = false;
     private GameObject _tower;
@@ -25,6 +26,7 @@ public class PutTower : MonoBehaviour
             hp.GetComponent<Hp>()._fighter = _tower;
             Debug.Log("add hp for Tower");
             _zone.GetComponent<ZoneEnter>().AddTowerInZone(_tower);
+            _panelHelper.SetActive(false);
             _isEmpty = false;
         }
         
