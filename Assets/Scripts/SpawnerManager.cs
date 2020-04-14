@@ -7,9 +7,9 @@ public class SpawnerManager : MonoBehaviour
 {
     private int _firstWaveNumber = 1;
     private int _waveNumber = 1;
-    [SerializeField] private GameObject[] _prefabs;
-    [SerializeField] private GameObject[] _spawners;
-    [SerializeField] private GameObject _waveCountText;
+    public GameObject[] _prefabs;
+    public GameObject[] _spawners;
+    public GameObject _waveCountText;
     private int _countEnemies = 5;
 
     private void Start()
