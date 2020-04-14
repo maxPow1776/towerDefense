@@ -12,6 +12,6 @@ public class GameOver : MonoBehaviour
 
     public void OnRestartButtonClick()
     {
-        SceneManager.LoadScene("SampleScene1", LoadSceneMode.Single);
+        //SceneManager.LoadScene("SampleScene1", LoadSceneMode.Single);
     }
 }

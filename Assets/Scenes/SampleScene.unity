@@ -800,6 +800,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0493b36feb1cfe643b297d82a3a5b946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _firstHealth: 100
+  _firstProtection: 5
+  _firstDamage: 0
   _health: 100
   _protection: 5
   _damage: 0
@@ -812,6 +815,11 @@ MonoBehaviour:
   _spawners: {fileID: 1736280504}
   _gamePanel: {fileID: 1149156450}
   _gameOverPanel: {fileID: 768903732}
+  _enemies:
+  - {fileID: 6922574032904316912, guid: 90b4b957f4019b34f8587d9d9fb8329c, type: 3}
+  - {fileID: 5167620715711009310, guid: 0033bddd303336344af9b588bc8baf34, type: 3}
+  - {fileID: 165605266025473989, guid: cdbb7c14f5af22b43a87ce6932a88bf9, type: 3}
+  _spawnerManager: {fileID: 932637674}
 --- !u!50 &366186113
 Rigidbody2D:
   serializedVersion: 4

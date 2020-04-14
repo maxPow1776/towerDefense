@@ -12,6 +12,8 @@ public class MainTower : AbstractFighter
     [SerializeField] private GameObject _spawners;
     [SerializeField] private GameObject _gamePanel;
     [SerializeField] private GameObject _gameOverPanel;
+    [SerializeField] private EnemyFighter[] _enemies;
+    [SerializeField] private GameObject _spawnerManager;
 
     public override void StartFight(GameObject gameObject)
     {
@@ -39,6 +41,16 @@ public class MainTower : AbstractFighter
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = _destroyedTower;
             _spawners.SetActive(false);
+            EnemyFighter[] _destroy = FindObjectsOfType<EnemyFighter>();
+            foreach(EnemyFighter enemy in _destroy)
+            {
+                Destroy(enemy._hp);
+            }
+            foreach(EnemyFighter enemy in _enemies)
+            {
+                enemy.OnFirstWave();
+            }
+            _spawnerManager.GetComponent<SpawnerManager>().OnFirstWave();
             StartCoroutine(RestartGame());
         }
     }

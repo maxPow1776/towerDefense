@@ -4,12 +4,13 @@ using UnityEngine;
 
 public abstract class AbstractFighter : MonoBehaviour
 {
-    [SerializeField] public int _health;
-    [SerializeField] public int _protection;
-    [SerializeField] public int _damage;
+    public int _firstHealth;
+    public int _firstProtection;
+    public int _firstDamage;
+    public int _health;
+    public int _protection;
+    public int _damage;
     public GameObject _hp;
-
-    
 
     public abstract void StartFight(GameObject gameObject);
 }

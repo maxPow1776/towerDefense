@@ -55,4 +55,11 @@ public class EnemyFighter : AbstractFighter
         _damage += 1;
         _protection += 1;
     }
+
+    public void OnFirstWave()
+    {
+        _health = _firstHealth;
+        _protection = _firstProtection;
+        _damage = _firstDamage;
+    }
 }

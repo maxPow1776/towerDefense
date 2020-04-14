@@ -30,7 +30,8 @@ public class Bullet : MonoBehaviour
         {
             _rival = collision.gameObject.GetComponent<EnemyFighter>();
             _rival._health -= (damage - _rival._protection);
-            _rival._hp.GetComponent<Hp>()._health = _rival._health;
+            if (_rival._hp != null)
+                _rival._hp.GetComponent<Hp>()._health = _rival._health;
             Destroy(gameObject);
             if(_rival._health < 0)
             {

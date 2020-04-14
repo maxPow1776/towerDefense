@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class SpawnerManager : MonoBehaviour
 {
+    private int _firstWaveNumber = 1;
     private int _waveNumber = 1;
     [SerializeField] private GameObject[] _prefabs;
     [SerializeField] private GameObject[] _spawners;
@@ -36,5 +37,10 @@ public class SpawnerManager : MonoBehaviour
         {
             _prefabs[i].GetComponent<EnemyFighter>().NewLevelEnemy();
         }
+    }
+
+    public void OnFirstWave()
+    {
+        _waveNumber = _firstWaveNumber;
     }
 }
