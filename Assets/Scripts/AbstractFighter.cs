@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class AbstractFighter : MonoBehaviour
 {
@@ -8,6 +6,4 @@ public abstract class AbstractFighter : MonoBehaviour
     public int _protection;
     public int _damage;
     public GameObject _hp;
-
-    public abstract void StartFight(GameObject gameObject);
 }

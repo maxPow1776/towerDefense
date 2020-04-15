@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class MainTower : AbstractFighter
 {
@@ -14,11 +13,6 @@ public class MainTower : AbstractFighter
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private EnemyFighter[] _enemies;
     [SerializeField] private GameObject _spawnerManager;
-
-    public override void StartFight(GameObject gameObject)
-    {
-        
-    }
 
     void Start()
     {
@@ -37,7 +31,7 @@ public class MainTower : AbstractFighter
 
     void Update()
     {
-        if(_health < 0)
+        if(_health <= 0)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = _destroyedTower;
             _spawners.SetActive(false);
@@ -58,11 +52,8 @@ public class MainTower : AbstractFighter
 
     IEnumerator RestartGame()
     {
-        yield return new WaitForSeconds(3);
-        
+        yield return new WaitForSeconds(3);      
         _gamePanel.SetActive(false);
         _gameOverPanel.SetActive(true);
-
-        //SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
     }
 }

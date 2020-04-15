@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
@@ -12,6 +10,6 @@ public class GameOver : MonoBehaviour
 
     public void OnRestartButtonClick()
     {
-        //SceneManager.LoadScene("SampleScene1", LoadSceneMode.Single);
+        SceneManager.LoadScene("SampleScene1", LoadSceneMode.Single);
     }
 }

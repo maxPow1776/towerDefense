@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,11 +6,9 @@ public class AddTowerButton : MonoBehaviour
 {
     [SerializeField] private GameObject _panelHelper;
     [SerializeField] private float _interval;
-    //private bool _isInteracteble = true;
 
     public void OnAddTowerButtonClick()
     {
-        //if (_isInteracteble)
             StartCoroutine(ButtonClick());
     }
 

@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _spawners;
     [SerializeField] private GameObject _gamePanel;
     [SerializeField] private GameObject _mainTower;
-
 
     public void OnPlayButtonClick()
     {

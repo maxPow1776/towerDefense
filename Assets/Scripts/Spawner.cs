@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -36,12 +35,10 @@ public class Spawner : MonoBehaviour
     private void CreateEnemy()
     {
         var random = (int)(Random.value * 3);
-        Debug.Log("random " + random);
         if (random == 3)
         {
             random = 0;
         }
-        Debug.Log("random " + random);
         var enemy = Instantiate(_prefabs[random], transform.position, Quaternion.identity);
         var hp = Instantiate(_hp, Vector2.zero, Quaternion.identity);
         hp.transform.SetParent(_canvas.transform);

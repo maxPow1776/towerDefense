@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
@@ -10,11 +8,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Vector2 _force;
     public int damage;
     private string _isDie = "isDie";
-
-    private void Start()
-    {
-        //gameObject.GetComponent<Rigidbody2D>().AddForce(_force, ForceMode2D.Impulse);
-    }
 
     private void Update()
     {
@@ -33,7 +26,7 @@ public class Bullet : MonoBehaviour
             if (_rival._hp != null)
                 _rival._hp.GetComponent<Hp>()._health = _rival._health;
             Destroy(gameObject);
-            if(_rival._health < 0)
+            if(_rival._health <= 0)
             {
                 _rival.GetComponent<Animator>().SetBool(_isDie, true);
                 if(_rival.GetComponent<EnemyFighter>()._placeForTower != null)

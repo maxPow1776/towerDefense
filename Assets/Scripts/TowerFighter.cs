@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerFighter : AbstractFighter
@@ -8,7 +7,6 @@ public class TowerFighter : AbstractFighter
     public GameObject gun;
     public float _interval;
     public GameObject _target;
-
     public int _index;
 
     private bool _isShoot = false;
@@ -27,14 +25,12 @@ public class TowerFighter : AbstractFighter
         {
             if (_enemies[i] != null)
             {
-                _target = _enemies[i];
-                //while (_target != null)
-                //{
-                    if (!_isShoot)
-                    {
-                        StartCoroutine(Shoot());
-                    }
-                //}
+            _target = _enemies[i];
+                if (!_isShoot)
+                {
+                    StartCoroutine(Shoot());
+                }
+
             }
         }
     }
@@ -49,15 +45,8 @@ public class TowerFighter : AbstractFighter
         _isShoot = false;
     }
 
-    public override void StartFight(GameObject gameObject)
-    {
-        //_target = gameObject;
-        //Debug.Log("Башня получила врага");
-    }
-
     public void UpdateEnemies(GameObject[] gameObjects)
     {
         _enemies = gameObjects;
-        Debug.Log("обновили в башне список врагов");
     }
 }

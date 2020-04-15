@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ZoneEnter : MonoBehaviour
 {
     private GameObject[] towers = new GameObject[3];
     [SerializeField] private GameObject[] enemies = new GameObject[10];
-
 
     public void AddTowerInZone(GameObject tower)
     {
@@ -16,7 +13,6 @@ public class ZoneEnter : MonoBehaviour
             {
                 towers[i] = tower;
                 tower.GetComponent<TowerFighter>()._index = i;
-                Debug.Log("башня довавлена в массив " + i);
                 towers[i].GetComponent<TowerFighter>().UpdateEnemies(enemies);
                 break;
             }
@@ -25,7 +21,6 @@ public class ZoneEnter : MonoBehaviour
 
     public void RemoveTowerFromZone(GameObject tower)
     {
-        Debug.Log("удаляем башню с индексом " + tower.GetComponent<TowerFighter>()._index);
         towers[tower.GetComponent<TowerFighter>()._index] = null;
     }
 
@@ -33,13 +28,12 @@ public class ZoneEnter : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<EnemyFighter>())
         {
-            collision.gameObject.GetComponent<EnemyFighter>()._zone = this.gameObject;
+            collision.gameObject.GetComponent<EnemyFighter>()._zone = gameObject;
             for(int i = 0; i < enemies.Length; i++)
             {
                 if(enemies[i] == null)
                 {
                     enemies[i] = collision.gameObject;
-                    Debug.Log("враг добавлен в список");
                     for(int j = 0; j < towers.Length; j++)
                     {
                         if(towers[j] != null)
@@ -49,6 +43,5 @@ public class ZoneEnter : MonoBehaviour
                 }
             }
         }
-        //Debug.Log("вошел в коллизию");
     }
 }

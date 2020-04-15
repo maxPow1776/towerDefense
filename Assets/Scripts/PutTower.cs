@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PutTower : MonoBehaviour
@@ -24,7 +22,6 @@ public class PutTower : MonoBehaviour
             hp.transform.SetParent(_canvas.transform);
             _tower.GetComponent<TowerFighter>()._hp = hp;
             hp.GetComponent<Hp>()._fighter = _tower;
-            Debug.Log("add hp for Tower");
             _zone.GetComponent<ZoneEnter>().AddTowerInZone(_tower);
             _panelHelper.SetActive(false);
             _isEmpty = false;
@@ -42,7 +39,6 @@ public class PutTower : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("что то вошло в коллизию с местом для башни");
         if (collision.gameObject.GetComponent<EnemyFighter>())
         {
             _hasEnemy = true;
