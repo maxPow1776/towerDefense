@@ -41,10 +41,11 @@ public class MainTower : AbstractFighter
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = _destroyedTower;
             _spawners.SetActive(false);
-            EnemyFighter[] _destroy = FindObjectsOfType<EnemyFighter>();
-            foreach(EnemyFighter enemy in _destroy)
+            AbstractFighter[] _destroy = FindObjectsOfType<AbstractFighter>();
+            foreach(AbstractFighter enemy in _destroy)
             {
-                Destroy(enemy._hp);
+                if(enemy._hp != null)
+                    Destroy(enemy._hp);
             }
             foreach(EnemyFighter enemy in _enemies)
             {
