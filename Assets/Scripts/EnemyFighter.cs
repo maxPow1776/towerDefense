@@ -21,7 +21,7 @@ public class EnemyFighter : AbstractFighter
     public void StartFight(GameObject gameObject)
     {
         _rival = gameObject.GetComponent<AbstractFighter>();
-        InvokeRepeating("Fight", 1, 2);
+        InvokeRepeating("Fight", 1, 1);
     }
 
     private void Fight()

@@ -45,10 +45,13 @@ public class SpawnerManagerEditor : Editor
         GUILayout.EndHorizontal();
         GUILayout.EndVertical();
 
-        GUILayout.BeginHorizontal("box");
+        GUILayout.BeginVertical("box");
+        GUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Wave Count Text");
         _spawnerManager._waveCountText = (GameObject)EditorGUILayout.ObjectField(_spawnerManager._waveCountText , typeof(GameObject), false);
         GUILayout.EndHorizontal();
+        _spawnerManager._addTowerButton = (GameObject)EditorGUILayout.ObjectField("Add Tower Button", _spawnerManager._addTowerButton, typeof(GameObject), true);
+        GUILayout.EndVertical();
 
         if (GUI.changed)
         {

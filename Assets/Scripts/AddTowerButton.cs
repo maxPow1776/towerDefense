@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class AddTowerButton : MonoBehaviour
 {
     [SerializeField] private GameObject _panelHelper;
-    [SerializeField] private float _interval;
+    public float _interval;
 
     public void OnAddTowerButtonClick()
     {

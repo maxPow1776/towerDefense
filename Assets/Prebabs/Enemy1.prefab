@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2344dc23bd7dd154a932748c0578b3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.1
+  _speed: 0.17
   _direction: {x: -5, y: 0, z: 0}
   _isCollision: 0
 --- !u!114 &3770110763605762934
@@ -161,15 +161,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4987435ecc6b62142aa088092594d8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 30
+  _health: 27
   _protection: 6
-  _damage: 12
+  _damage: 7
   _hp: {fileID: 0}
   _zone: {fileID: 0}
   _placeForTower: {fileID: 0}
-  _firstHealth: 30
+  _firstHealth: 27
   _firstProtection: 6
-  _firstDamage: 12
+  _firstDamage: 7
 --- !u!50 &683673295
 Rigidbody2D:
   serializedVersion: 4
