@@ -6,8 +6,13 @@ public class EnemyFighter : AbstractFighter
 {
     private AbstractFighter _rival;
     private string _isFight = "isFight";
+
     public GameObject _zone;
     public GameObject _placeForTower;
+
+    public int _firstHealth;
+    public int _firstProtection;
+    public int _firstDamage;
 
     private void Start()
     {

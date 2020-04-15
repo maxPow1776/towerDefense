@@ -161,15 +161,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4987435ecc6b62142aa088092594d8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstHealth: 30
-  _firstProtection: 6
-  _firstDamage: 12
   _health: 30
   _protection: 6
   _damage: 12
   _hp: {fileID: 0}
   _zone: {fileID: 0}
   _placeForTower: {fileID: 0}
+  _firstHealth: 30
+  _firstProtection: 6
+  _firstDamage: 12
 --- !u!50 &683673295
 Rigidbody2D:
   serializedVersion: 4
