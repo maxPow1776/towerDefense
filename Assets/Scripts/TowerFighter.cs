@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class TowerFighter : AbstractFighter
 {
-    [SerializeField] private GameObject _prefab;
-    [SerializeField] private GameObject gun;
-    private GameObject _currentPrefab;
+    public GameObject _prefab;
+    public GameObject gun;
+    public float _interval;
     public GameObject _target;
-    [SerializeField] private float _interval;
-    private bool _isShoot = false;
+
     public int _index;
+
+    private bool _isShoot = false;
     private GameObject[] _enemies = new GameObject[10];
+    private GameObject _currentPrefab;
 
     private void Start()
     {
@@ -41,9 +43,9 @@ public class TowerFighter : AbstractFighter
     {
         _isShoot = true;
         yield return new WaitForSeconds(_interval);
-        GameObject bullet = GameObject.Instantiate(_prefab, gun.transform.position, Quaternion.identity);
+        GameObject bullet = Instantiate(_prefab, gun.transform.position, Quaternion.identity);
         bullet.GetComponent<Bullet>()._targetForBullet = _target;
-        //bullet.GetComponent<Bullet>().damage = _damage;
+        bullet.GetComponent<Bullet>().damage = _damage;
         _isShoot = false;
     }
 

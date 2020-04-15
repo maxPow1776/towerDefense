@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed;
     private AbstractFighter _rival;
     [SerializeField] private Vector2 _force;
-    public int damage = 20;
+    public int damage;
     private string _isDie = "isDie";
 
     private void Start()
