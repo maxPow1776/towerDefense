@@ -800,10 +800,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0493b36feb1cfe643b297d82a3a5b946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
-  _protection: 5
-  _damage: 0
-  _hp: {fileID: 0}
+  Health: 100
+  Protection: 5
+  Damage: 0
+  Hp: {fileID: 0}
   _dotForHP: {fileID: 249932003}
   _canvas: {fileID: 1531933709}
   _hpPrefab: {fileID: 816361356212274600, guid: cafa1e3c27a1a0f4bbaea10ff787114f,
