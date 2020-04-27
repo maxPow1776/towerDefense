@@ -5,11 +5,11 @@ public class GameOver : MonoBehaviour
 {
     public void OnMainMenuButtonClick()
     {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("MainScene", LoadSceneMode.Single);
     }
 
     public void OnRestartButtonClick()
     {
-        SceneManager.LoadScene("SampleScene 1", LoadSceneMode.Single);
+        SceneManager.LoadScene("RespawnScene", LoadSceneMode.Single);
     }
 }
