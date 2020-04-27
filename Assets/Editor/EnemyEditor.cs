@@ -17,25 +17,34 @@ public class EnemyEditor : Editor
         GUILayout.BeginVertical("box");
         EditorGUILayout.LabelField("Information");
         GUILayout.BeginHorizontal();
-        _enemyFighter._health = EditorGUILayout.IntField("Health", _enemyFighter._health, GUILayout.Width(200));
-        _enemyFighter._firstHealth = EditorGUILayout.IntField("first", _enemyFighter._firstHealth, GUILayout.Width(200));
+        EditorGUILayout.LabelField("Health", GUILayout.MinWidth(50));
+        _enemyFighter._health = EditorGUILayout.IntField(_enemyFighter._health, GUILayout.MinWidth(30));
+        EditorGUILayout.LabelField("  => ", GUILayout.MinWidth(7));
+        EditorGUILayout.LabelField("first", GUILayout.MinWidth(35));
+        _enemyFighter._firstHealth = EditorGUILayout.IntField(_enemyFighter._firstHealth, GUILayout.MinWidth(30));
         GUILayout.EndHorizontal();
         GUILayout.BeginHorizontal();
-        _enemyFighter._protection = EditorGUILayout.IntField("Protection", _enemyFighter._protection, GUILayout.Width(200));
-        _enemyFighter._firstProtection = EditorGUILayout.IntField("first", _enemyFighter._firstProtection, GUILayout.Width(200));
+        EditorGUILayout.LabelField("Protection", GUILayout.MinWidth(50));
+        _enemyFighter._protection = EditorGUILayout.IntField( _enemyFighter._protection, GUILayout.MinWidth(30));
+        EditorGUILayout.LabelField("  => ", GUILayout.MinWidth(7));
+        EditorGUILayout.LabelField("first", GUILayout.MinWidth(35));
+        _enemyFighter._firstProtection = EditorGUILayout.IntField(_enemyFighter._firstProtection, GUILayout.MinWidth(30));
         GUILayout.EndHorizontal();
         GUILayout.BeginHorizontal();
-        _enemyFighter._damage = EditorGUILayout.IntField("Damage", _enemyFighter._damage, GUILayout.Width(200));
-        _enemyFighter._firstDamage = EditorGUILayout.IntField("first", _enemyFighter._firstDamage, GUILayout.Width(200));
+        EditorGUILayout.LabelField("Damage", GUILayout.MinWidth(50));
+        _enemyFighter._damage = EditorGUILayout.IntField( _enemyFighter._damage, GUILayout.MinWidth(30));
+        EditorGUILayout.LabelField("  => ", GUILayout.MinWidth(7));
+        EditorGUILayout.LabelField("first", GUILayout.MinWidth(35));
+        _enemyFighter._firstDamage = EditorGUILayout.IntField(_enemyFighter._firstDamage, GUILayout.MinWidth(30));
         GUILayout.EndHorizontal();
         GUILayout.EndVertical();
 
         GUILayout.BeginHorizontal("box");
-        if(GUILayout.Button("Improve", GUILayout.Width(200)))
+        if(GUILayout.Button("Improve", GUILayout.MinWidth(60)))
         {
             _enemyFighter.NewLevelEnemy();
         }
-        if (GUILayout.Button("On first", GUILayout.Width(200)))
+        if (GUILayout.Button("On first", GUILayout.MinWidth(60)))
         {
             _enemyFighter.OnFirstWave();
         }
