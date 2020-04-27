@@ -22,11 +22,11 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.GetComponent<EnemyFighter>())
         {
             _rival = collision.gameObject.GetComponent<EnemyFighter>();
-            _rival._health -= (damage - _rival._protection);
-            if (_rival._hp != null)
-                _rival._hp.GetComponent<Hp>()._health = _rival._health;
+            _rival.Health -= (damage - _rival.Protection);
+            if (_rival.Hp != null)
+                _rival.Hp.GetComponent<Hp>()._health = _rival.Health;
             Destroy(gameObject);
-            if(_rival._health <= 0)
+            if(_rival.Health <= 0)
             {
                 _rival.GetComponent<Animator>().SetBool(_isDie, true);
                 if(_rival.GetComponent<EnemyFighter>()._placeForTower != null)

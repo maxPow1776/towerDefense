@@ -2,8 +2,8 @@
 
 public abstract class AbstractFighter : MonoBehaviour
 {
-    public int _health;
-    public int _protection;
-    public int _damage;
-    public GameObject _hp;
+    public int Health;
+    public int Protection;
+    public int Damage;
+    public GameObject Hp;
 }

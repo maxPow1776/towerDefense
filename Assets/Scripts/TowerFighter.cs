@@ -15,8 +15,8 @@ public class TowerFighter : AbstractFighter
 
     private void Start()
     {
-        if (_hp != null)
-            _hp.GetComponent<Hp>()._health = _health;
+        if (Hp != null)
+            Hp.GetComponent<Hp>()._health = Health;
     }
 
     public void Update()
@@ -41,7 +41,7 @@ public class TowerFighter : AbstractFighter
         yield return new WaitForSeconds(_interval);
         GameObject bullet = Instantiate(_prefab, gun.transform.position, Quaternion.identity);
         bullet.GetComponent<Bullet>()._targetForBullet = _target;
-        bullet.GetComponent<Bullet>().damage = _damage;
+        bullet.GetComponent<Bullet>().damage = Damage;
         _isShoot = false;
     }
 

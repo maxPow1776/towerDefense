@@ -14,8 +14,8 @@ public class EnemyFighter : AbstractFighter
 
     private void Start()
     {
-        if (_hp != null)
-            _hp.GetComponent<Hp>()._health = _health;
+        if (Hp != null)
+            Hp.GetComponent<Hp>()._health = Health;
     }
 
     public void StartFight(GameObject gameObject)
@@ -30,13 +30,13 @@ public class EnemyFighter : AbstractFighter
         {
             if (_rival)
             {
-                _rival._health -= (_damage - _rival._protection);
-                _rival.GetComponent<AbstractFighter>()._hp.GetComponent<Hp>()._health = _rival._health;
-                if (_rival._health <= 0)
+                _rival.Health -= (Damage - _rival.Protection);
+                _rival.GetComponent<AbstractFighter>().Hp.GetComponent<Hp>()._health = _rival.Health;
+                if (_rival.Health <= 0)
                 {
                     if(_rival.GetComponent<TowerFighter>())
                         _zone.GetComponent<ZoneEnter>().RemoveTowerFromZone(_rival.gameObject);
-                    Destroy(_rival.GetComponent<AbstractFighter>()._hp);
+                    Destroy(_rival.GetComponent<AbstractFighter>().Hp);
                     if (_rival.GetComponent<TowerFighter>())
                         Destroy(_rival.gameObject);
                     CancelInvoke("Fight");
@@ -54,15 +54,15 @@ public class EnemyFighter : AbstractFighter
 
     public void NewLevelEnemy()
     {
-        _health++;
-        _damage++;
-        _protection++;
+        Health++;
+        Damage++;
+        Protection++;
     }
 
     public void OnFirstWave()
     {
-        _health = _firstHealth;
-        _protection = _firstProtection;
-        _damage = _firstDamage;
+        Health = _firstHealth;
+        Protection = _firstProtection;
+        Damage = _firstDamage;
     }
 }

@@ -18,21 +18,21 @@ public class EnemyEditor : Editor
         EditorGUILayout.LabelField("Information");
         GUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Health", GUILayout.MinWidth(50));
-        _enemyFighter._health = EditorGUILayout.IntField(_enemyFighter._health, GUILayout.MinWidth(30));
+        _enemyFighter.Health = EditorGUILayout.IntField(_enemyFighter.Health, GUILayout.MinWidth(30));
         EditorGUILayout.LabelField("  => ", GUILayout.MinWidth(7));
         EditorGUILayout.LabelField("first", GUILayout.MinWidth(35));
         _enemyFighter._firstHealth = EditorGUILayout.IntField(_enemyFighter._firstHealth, GUILayout.MinWidth(30));
         GUILayout.EndHorizontal();
         GUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Protection", GUILayout.MinWidth(50));
-        _enemyFighter._protection = EditorGUILayout.IntField( _enemyFighter._protection, GUILayout.MinWidth(30));
+        _enemyFighter.Protection = EditorGUILayout.IntField( _enemyFighter.Protection, GUILayout.MinWidth(30));
         EditorGUILayout.LabelField("  => ", GUILayout.MinWidth(7));
         EditorGUILayout.LabelField("first", GUILayout.MinWidth(35));
         _enemyFighter._firstProtection = EditorGUILayout.IntField(_enemyFighter._firstProtection, GUILayout.MinWidth(30));
         GUILayout.EndHorizontal();
         GUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Damage", GUILayout.MinWidth(50));
-        _enemyFighter._damage = EditorGUILayout.IntField( _enemyFighter._damage, GUILayout.MinWidth(30));
+        _enemyFighter.Damage = EditorGUILayout.IntField( _enemyFighter.Damage, GUILayout.MinWidth(30));
         EditorGUILayout.LabelField("  => ", GUILayout.MinWidth(7));
         EditorGUILayout.LabelField("first", GUILayout.MinWidth(35));
         _enemyFighter._firstDamage = EditorGUILayout.IntField(_enemyFighter._firstDamage, GUILayout.MinWidth(30));
@@ -51,7 +51,7 @@ public class EnemyEditor : Editor
         GUILayout.EndHorizontal();
 
         GUILayout.BeginVertical("box");
-        _enemyFighter._hp = (GameObject)EditorGUILayout.ObjectField("HP", _enemyFighter._hp, typeof(GameObject), false);
+        _enemyFighter.Hp = (GameObject)EditorGUILayout.ObjectField("HP", _enemyFighter.Hp, typeof(GameObject), false);
         _enemyFighter._zone = (GameObject)EditorGUILayout.ObjectField("Zone", _enemyFighter._zone, typeof(GameObject), false);
         _enemyFighter._placeForTower = (GameObject)EditorGUILayout.ObjectField("Place For Tower", _enemyFighter._placeForTower, typeof(GameObject), false);
         GUILayout.EndVertical();

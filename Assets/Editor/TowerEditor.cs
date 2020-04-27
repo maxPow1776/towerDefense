@@ -18,19 +18,19 @@ public class TowerEditor : Editor
         EditorGUILayout.LabelField("Information");
         GUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Health", GUILayout.MinWidth(50));
-        _towerFighter._health = EditorGUILayout.IntField(_towerFighter._health, GUILayout.MinWidth(30));
+        _towerFighter.Health = EditorGUILayout.IntField(_towerFighter.Health, GUILayout.MinWidth(30));
         EditorGUILayout.LabelField(" ", GUILayout.MinWidth(7));
         EditorGUILayout.LabelField("Protection", GUILayout.MinWidth(50));
-        _towerFighter._protection = EditorGUILayout.IntField(_towerFighter._protection, GUILayout.MinWidth(30));
+        _towerFighter.Protection = EditorGUILayout.IntField(_towerFighter.Protection, GUILayout.MinWidth(30));
         GUILayout.EndHorizontal();
         GUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Damage", GUILayout.MinWidth(50));
-        _towerFighter._damage = EditorGUILayout.IntField(_towerFighter._damage, GUILayout.MinWidth(30));
+        _towerFighter.Damage = EditorGUILayout.IntField(_towerFighter.Damage, GUILayout.MinWidth(30));
         EditorGUILayout.LabelField(" ", GUILayout.MinWidth(7));
         EditorGUILayout.LabelField("Index", GUILayout.MinWidth(50));
         _towerFighter._index = EditorGUILayout.IntField(_towerFighter._index, GUILayout.MinWidth(30));
         GUILayout.EndHorizontal();
-        _towerFighter._hp = (GameObject)EditorGUILayout.ObjectField("HP", _towerFighter._hp, typeof(GameObject), false);
+        _towerFighter.Hp = (GameObject)EditorGUILayout.ObjectField("HP", _towerFighter.Hp, typeof(GameObject), false);
         GUILayout.EndVertical();
 
         GUILayout.BeginVertical("box");

@@ -43,6 +43,6 @@ public class Spawner : MonoBehaviour
         var hp = Instantiate(_hp, Vector2.zero, Quaternion.identity);
         hp.transform.SetParent(_canvas.transform);
         hp.GetComponent<Hp>()._fighter = enemy;
-        enemy.GetComponent<EnemyFighter>()._hp = hp;
+        enemy.GetComponent<EnemyFighter>().Hp = hp;
     }
 }

@@ -18,28 +18,28 @@ public class MainTower : AbstractFighter
     {
         var hp = Instantiate(_hpPrefab, Vector2.zero, Quaternion.identity);
         hp.transform.SetParent(_canvas.transform);
-        _hp = hp;
-        _hp.GetComponent<Hp>()._rectTransform.position = Camera.main.WorldToScreenPoint(_dotForHP.transform.position);
-        _hp.GetComponent<Hp>()._fighter = gameObject;
-        _hp.GetComponent<Hp>()._isMainTower = true;
-        _hp.GetComponent<Text>().color = Color.green;
-        _hp.GetComponent<Text>().fontSize = 30;
-        if(_hp != null)
-            _hp.GetComponent<Hp>()._health = _health;
+        Hp = hp;
+        Hp.GetComponent<Hp>()._rectTransform.position = Camera.main.WorldToScreenPoint(_dotForHP.transform.position);
+        Hp.GetComponent<Hp>()._fighter = gameObject;
+        Hp.GetComponent<Hp>()._isMainTower = true;
+        Hp.GetComponent<Text>().color = Color.green;
+        Hp.GetComponent<Text>().fontSize = 30;
+        if(Hp != null)
+            Hp.GetComponent<Hp>()._health = Health;
 
     }
 
     void Update()
     {
-        if(_health <= 0)
+        if(Health <= 0)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = _destroyedTower;
             _spawners.SetActive(false);
             AbstractFighter[] _destroy = FindObjectsOfType<AbstractFighter>();
             foreach(AbstractFighter enemy in _destroy)
             {
-                if(enemy._hp != null)
-                    Destroy(enemy._hp);
+                if(enemy.Hp != null)
+                    Destroy(enemy.Hp);
             }
             foreach(EnemyFighter enemy in _enemies)
             {

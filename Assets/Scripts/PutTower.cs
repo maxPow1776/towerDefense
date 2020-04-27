@@ -20,7 +20,7 @@ public class PutTower : MonoBehaviour
             var hp = Instantiate(_prefabHP, Vector2.zero, Quaternion.identity);
             hp.GetComponent<Text>().color = Color.green;
             hp.transform.SetParent(_canvas.transform);
-            _tower.GetComponent<TowerFighter>()._hp = hp;
+            _tower.GetComponent<TowerFighter>().Hp = hp;
             hp.GetComponent<Hp>()._fighter = _tower;
             _zone.GetComponent<ZoneEnter>().AddTowerInZone(_tower);
             _panelHelper.SetActive(false);
