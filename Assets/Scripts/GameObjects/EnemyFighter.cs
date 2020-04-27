@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class EnemyFighter : AbstractFighter
 {
@@ -21,11 +22,12 @@ public class EnemyFighter : AbstractFighter
     public void StartFight(GameObject gameObject)
     {
         _rival = gameObject.GetComponent<AbstractFighter>();
-        InvokeRepeating("Fight", 1, 1);
+        StartCoroutine(Fight());
     }
 
-    private void Fight()
+    IEnumerator Fight()
     {
+        yield return new WaitForSeconds(1);
         try
         {
             if (_rival)
@@ -45,16 +47,17 @@ public class EnemyFighter : AbstractFighter
                             Destroy(_rival.GetComponent<AbstractFighter>().Hp);
                             if (_rival.GetComponent<TowerFighter>())
                                 Destroy(_rival.gameObject);
-                            CancelInvoke("Fight");
                             GetComponent<AutoMove>()._isCollision = false;
                             gameObject.GetComponent<Animator>().SetBool(_isFight, false);
+                        } else
+                        {
+                            StartCoroutine(Fight());
                         }
                     }
                 }  
             }
         } catch (MissingReferenceException e)
         {
-            CancelInvoke("Fight");
             GetComponent<AutoMove>()._isCollision = false;
             gameObject.GetComponent<Animator>().SetBool(_isFight, false);
         }

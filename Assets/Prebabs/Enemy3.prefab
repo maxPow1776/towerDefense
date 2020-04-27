@@ -161,10 +161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4987435ecc6b62142aa088092594d8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 25
-  _protection: 2
-  _damage: 9
-  _hp: {fileID: 0}
+  Health: 25
+  Protection: 2
+  Damage: 9
+  Hp: {fileID: 0}
   _zone: {fileID: 0}
   _placeForTower: {fileID: 0}
   _firstHealth: 25
