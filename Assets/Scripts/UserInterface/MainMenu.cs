@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -8,9 +9,6 @@ public class MainMenu : MonoBehaviour
 
     public void OnPlayButtonClick()
     {
-        _mainTower.SetActive(true);
-        _spawners.SetActive(true);
-        _gamePanel.SetActive(true);
-        gameObject.SetActive(false);
+        SceneManager.LoadScene("RespawnScene", LoadSceneMode.Single);
     }
 }
